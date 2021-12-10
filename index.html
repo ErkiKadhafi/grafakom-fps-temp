@@ -5,12 +5,30 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>FP | Grafkom</title>
-
-
         <script type="module" src="./script.js"></script>
-        <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet" href="./style.css" />
     </head>
     <body>
+        <div class="container">
+            <div>
+                <img src="./Images/heart.png" alt="heart image" />
+            </div>
+            <div>
+                <img src="./Images/heart.png" alt="heart image" />
+            </div>
+            <div>
+                <img src="./Images/heart.png" alt="heart image" />
+            </div>
+        </div>
+        <div class="idle-container">
+            <div>
+                <h1>Save Me Game</h1>
+                <h1>Zombie survival game</h1>
+                <button id="startGame">Start</button>
+            </div>
+        </div>
+        <h1 class="score">Score : <span id="scoreValue">0</span></h1>
+        <h2 class="crosshair">+</h2>
         <canvas id="myCanvas"></canvas>
     </body>
 </html>

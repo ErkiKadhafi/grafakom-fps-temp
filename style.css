@@ -8,3 +8,53 @@ body {
     height: 100%;
     display: block;
 }
+body{
+    background: #88ccff;
+}
+.score {
+    position: absolute;
+    color: white;
+    letter-spacing: 6px;
+    background: black;
+    padding: 0.2rem 0.8rem;
+    border-radius: 1rem;
+    top: 1%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+}
+.crosshair {
+    position: absolute;
+    color: white;
+    top: 50%;
+    left: 52%;
+    display: none;
+}
+.container {
+    position: absolute;
+    top: 5%;
+    left: 2%;
+    display: flex;
+    display: none;
+}
+.container img {
+    height: 2rem;
+    display: block;
+}
+.container div {
+    margin-right: 0.5rem;
+}
+.idle-container {
+    background: black;
+    width: 20rem;
+    color: white;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.idle-container div {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
