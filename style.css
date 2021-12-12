@@ -25,7 +25,7 @@ body{
 }
 .crosshair {
     position: absolute;
-    color: white;
+    color: black;
     top: 50%;
     left: 52%;
     display: none;
@@ -44,16 +44,24 @@ body{
 .container div {
     margin-right: 0.5rem;
 }
-.idle-container {
-    background: black;
-    width: 20rem;
-    color: white;
-    position: absolute;
+.start-container {
     top: 35%;
     left: 50%;
+    position: absolute;
+    background-color: #27272A;
+    color: white;
+    padding: 1rem;
+    border-radius: 1.5rem;
     transform: translateX(-50%);
+    
+    /* background: black;
+    width: 20rem;
+    
+    
+    
+     */
 }
-.idle-container div {
+.start-container div {
     display: flex;
     justify-content: center;
     flex-direction: column;

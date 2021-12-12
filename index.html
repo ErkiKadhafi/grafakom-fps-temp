@@ -1,34 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>FP | Grafkom</title>
-        <script type="module" src="./script.js"></script>
-        <link rel="stylesheet" href="./style.css" />
-    </head>
-    <body>
-        <div class="container">
-            <div>
-                <img src="./Images/heart.png" alt="heart image" />
-            </div>
-            <div>
-                <img src="./Images/heart.png" alt="heart image" />
-            </div>
-            <div>
-                <img src="./Images/heart.png" alt="heart image" />
-            </div>
-        </div>
-        <div class="idle-container">
-            <div>
-                <h1>Save Me Game</h1>
-                <h1>Zombie survival game</h1>
-                <button id="startGame">Start</button>
-            </div>
-        </div>
-        <h1 class="score">Score : <span id="scoreValue">0</span></h1>
-        <h1 class="crosshair">+</h1>
-        <canvas id="myCanvas"></canvas>
-    </body>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home - SYLFP </title>
+</head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+    *
+    {
+        font-family: 'Open Sans', sans-serif;
+    }
+
+    .mid
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .bg
+    {
+        width: 95%;
+        height: 95vh;
+        background-size: cover;
+        background-position: center;
+        background-image: url(Images/Untitled-1.png);
+    }
+
+    button
+    {
+        width: 20rem;
+        height: 8rem;
+        border-radius: 0.75rem;
+        background-color: #B7825F;
+        border-style: none;
+        
+        font-size: 2.5rem;
+        color: white;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    button:hover
+    {
+        background-color: #7A563F;
+    }
+</style>
+
+<body class="bg">
+    <div class="mid">
+        <img width="1000px" src="Images/judul.gif" alt="">
+    </div>
+    <div class="mid" style="margin-top: 2rem;">
+        <a href="game.html"><button>START</button></a>
+        <a href="game.html"><button style="margin-left: 2rem;">TUTORIAL</button></a>
+    </div>
+    <!-- <div class="mid">
+        <a href="game.html"><button style="margin-top: 2rem;">BACKGROUND</button></a>
+    </div> -->
+</body>
 </html>

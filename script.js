@@ -5,15 +5,18 @@ import { MTLLoader } from "https://threejsfundamentals.org/threejs/resources/thr
 import { clone } from "https://threejsfundamentals.org/threejs/resources/threejs/r132/examples/jsm/utils/SkeletonUtils.js";
 
 const canvas = document.querySelector("#myCanvas");
-const idleContainer = document.querySelector(".idle-container");
+const idleContainer = document.querySelector(".start-container");
 const heartContainer = document.querySelector(".container");
 const hearts = document.querySelectorAll(".container img");
 const startBtn = document.querySelector("#startGame");
 const scoreBoard = document.querySelector("#scoreValue");
+const crosshair = document.querySelector(".crosshair");
 
-let scene, camera, renderer, clock, mixer;
+let scene, camera, renderer, clock;
 let meshFloor;
 let meshFloorOutside;
+
+let mixer = [];
 
 let score = 0;
 let liveHeart = 4;
@@ -326,8 +329,10 @@ function generateEnemy() {
   // const anim = new FBXLoader(loadingManager);
   // anim.load("./Object/running6.fbx", (anim) => {
   //     // console.log(anim)
-  //     mixer = new THREE.AnimationMixer(mesh.model);
+  //     mixerTemp = new THREE.AnimationMixer(mesh.model);
   //     const running = mixer.clipAction(anim.animations[0]);
+  //     mesh.mixer = mixerTemp;
+  //     mixer.push(mixerTemp);
   //     running.play();
   // });
 
@@ -351,8 +356,10 @@ function generateEnemy() {
   setTimeout(function () {
     mesh.alive = false;
     mesh.model.alive = false;
+    // new THREE.AnimationAction.stop(mesh.mixer);
     scene.remove(mesh);
     scene.remove(mesh.model);
+    // mesh.model.position.y -= 3;
     if (!mesh.isHit) {
       const img = hearts[liveHeart - 1];
       if (img) {
@@ -393,6 +400,7 @@ function detectCollisionCubes(object1, object2) {
 function idleState() {
   idleContainer.style.display = "block";
   heartContainer.style.display = "none";
+  crosshair.style.display = "none";
   const scoreDiv = document.querySelector(".score");
   scoreDiv.style.display = "none";
 
@@ -447,6 +455,7 @@ function animate() {
     if (enemies[i] === undefined) continue;
     if (enemies[i].alive === false) {
       enemies.splice(i, 1);
+      mixer.splice(i, 1);
       continue;
     }
     let collision = false;
@@ -454,6 +463,7 @@ function animate() {
       if (detectCollisionCubes(enemies[i], bullets[j])) {
         enemies[i].isHit = true;
         scene.remove(enemies[i].model);
+        // enemies[i].model.position.y -= 3;
         scene.remove(enemies[i]);
         scene.remove(bullets[j]);
         bullets.splice(j, 1);
@@ -471,7 +481,11 @@ function animate() {
   const time = Date.now() * 0.0005;
   const delta = clock.getDelta();
 
-  if (mixer) mixer.update(delta);
+  if (mixer){
+    mixer.forEach(e=>{
+      e.update(delta);
+    })
+  } 
 
   // walking event
   if (keyboard[65] && camera.position.x <= 9) {
@@ -537,7 +551,7 @@ function animate() {
   if (enemySpawnInterval <= 0) generateEnemy();
 
   enemySpawnInterval--;
-
+  
   // position the gun in front of the camera
   meshes["playerWeapon"].position.set(
     camera.position.x - Math.sin(camera.rotation.y + Math.PI / 6) * 0.75,
@@ -573,6 +587,7 @@ startBtn.addEventListener("click", function () {
   const scoreDiv = document.querySelector(".score");
   scoreDiv.style.display = "flex";
   GAME_STATE = "START";
+  crosshair.style.display = "block";
   currentRunningProgram = init();
   // document.body.requestPointerLock();
 });
