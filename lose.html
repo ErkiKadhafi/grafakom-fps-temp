@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lose Pop up</title>
+</head>
+
+<style>
+    *
+    {
+        box-sizing: border-box;
+    }
+
+    .canvas-blur
+    {
+        filter: blur(8px);
+        -webkit-filter: blur(8px);
+    }
+
+    /* Position text in the middle of the page/image */
+    .bg-text {
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+    color: white;
+    font-weight: bold;
+    border: 3px solid #f1f1f1;
+    border-radius: 1.5rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 30%;
+    padding: 2rem;
+    text-align: center;
+    }
+
+    .mid
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+
+<body>
+    <!-- nanti di canvasnya tambahin class canvas-blur abistu munculin card di bawah -->
+    <!-- Selengkapnya disini https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_blurred_bg -->
+    <div class="bg-text">
+        <h1 style="font-size:4rem">You lose!</h1>
+        <h2>Score: <span id="scoreValue">0</span></h2>
+        <div class="mid">
+            <img width="50px" src="refresh.png" alt="">
+        </div>
+    </div>
+</body>
+</html>

@@ -548,7 +548,7 @@ function animate() {
     player.canShoot = 50;
   }
   if (player.canShoot > 0) player.canShoot -= 1;
-  if (enemySpawnInterval <= 0) generateEnemy();
+  // if (enemySpawnInterval <= 0) generateEnemy();
 
   enemySpawnInterval--;
   
