@@ -5,30 +5,56 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Game - SYLFP</title>
+        <link rel="stylesheet" href="./idle.css" />
+        <link rel="stylesheet" href="./start.css" />
+        <link rel="stylesheet" href="./lose.css" />
+        <link rel="icon" type="image/x-icon" href="/favicon_io/favicon.ico" />
         <script type="module" src="./script.js"></script>
-        <link rel="stylesheet" href="./style.css" />
     </head>
     <body>
-        <div class="container">
-            <div>
-                <img src="./Images/heart.png" alt="heart image" />
+        <!-- idle state display -->
+        <div class="bg-idle">
+            <div class="mid">
+                <img width="1000px" src="Images/judul.gif" alt="" />
             </div>
-            <div>
-                <img src="./Images/heart.png" alt="heart image" />
-            </div>
-            <div>
-                <img src="./Images/heart.png" alt="heart image" />
-            </div>
-        </div>
-        <div class="start-container">
-            <div>
-                <h1>Save Me Game</h1>
-                <h1>Pirate survival game</h1>
-                <button id="startGame">Start</button>
+            <div class="mid" style="margin-top: 2rem">
+                <button id="startGame">START</button>
+                <button style="margin-left: 2rem">TUTORIAL</button>
+                <!-- <a href="game.html"></a>
+                <a href="game.html"></a> -->
             </div>
         </div>
-        <h1 class="score">Score : <span id="scoreValue">0</span></h1>
-        <h1 class="crosshair">+</h1>
+
+        <!-- gamplay state display  -->
+        <div class="bg-start">
+            <div class="container">
+                <div>
+                    <img src="./Images/heart.png" alt="heart image" />
+                </div>
+                <div>
+                    <img src="./Images/heart.png" alt="heart image" />
+                </div>
+                <div>
+                    <img src="./Images/heart.png" alt="heart image" />
+                </div>
+            </div>
+
+            <h1 class="score">Score : <span id="scoreValue">0</span></h1>
+            <h1 class="crosshair">+</h1>
+        </div>
+
+        <!-- lose state display  -->
+        <div class="bg-lose">
+            <div class="bg-text">
+                <h1 style="font-size: 4rem">You lose!</h1>
+                <h2>Score: <span id="scoreValue">0</span></h2>
+                <div class="mid">
+                    <button id="startAgainBtn">Play Again</button>
+                    <button id="quitBtn">Quit</button>
+                    <!-- <img width="50px" src="./Images/refresh.png" alt="" /> -->
+                </div>
+            </div>
+        </div>
         <canvas id="myCanvas"></canvas>
     </body>
 </html>
