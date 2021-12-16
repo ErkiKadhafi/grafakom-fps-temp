@@ -619,7 +619,7 @@ startAgainBtn.addEventListener("click", function () {
     gameplayState();
 });
 quitBtn.addEventListener("click", function () {
-    location.href = "game.html";
+    location.href = "index.html";
 });
 
 // window.onload = init;
