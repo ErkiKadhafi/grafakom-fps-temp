@@ -23,6 +23,7 @@ const heartContainer = document.querySelector(".container");
 const hearts = document.querySelectorAll(".container img");
 const scoreBoard = document.querySelector("#scoreValue");
 const crosshair = document.querySelector(".crosshair");
+const scoreLoose = document.querySelector("#scoreLose");
 
 let scene, camera, renderer, clock;
 let meshFloor;
@@ -32,8 +33,6 @@ let mixer = [];
 
 let score = 0;
 let liveHeart = 4;
-
-let crateTexture, crateNormalMap, crateBumpMap;
 
 let keyboard = {};
 let player = {
@@ -585,7 +584,7 @@ function resetGameComponents() {
         heart.src = "./Images/heart.png";
     });
     // document.exitPointerLock();
-    scene.clear();
+    // scene.clear();
 }
 function idleState() {
     preGameplayContainer.style.display = "block";
@@ -607,8 +606,9 @@ function gameplayState() {
 function loseState() {
     loseContainer.style.display = "block";
     gameplayContainer.style.display = "none";
-
+    scoreLoose.innerHTML = score;
     resetGameComponents();
+
     return;
 }
 
